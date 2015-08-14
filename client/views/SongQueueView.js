@@ -8,4 +8,6 @@ var SongQueueView = Backbone.View.extend({
     return this.$el;
   }
 
+  //listen to SongQue model changes and call render
+
 });

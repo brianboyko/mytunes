@@ -7,7 +7,9 @@ var LibraryEntryView = Backbone.View.extend({
 
   events: {
     'click': function() {
+      //if queue empty  or any song is playing
       this.model.play();
+      // else enqueue song (method in or song queue model)
     }
   },
 
