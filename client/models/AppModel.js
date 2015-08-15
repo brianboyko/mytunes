@@ -5,7 +5,10 @@ var AppModel = Backbone.Model.extend({
     this.set('songQueue', new SongQueue());
 
     params.library.on('play', function(song) {
-      this.set('currentSong', song);
+      //this.set('currentSong', song);
+      if (this.get('songQueue').at(0)){
+        this.set('currentSong', this.get('songQueue').at(0))
+      }
     }, this);
 
     params.library.on('enqueue', function(song) {
@@ -19,7 +22,12 @@ var AppModel = Backbone.Model.extend({
 
     params.library.on('ended', function(){
       console.log("Triggered ended in AppModel");
-    });
+      this.get('songQueue').dequeue(this.get('songQueue').at(0))
+      // is this backbone MV**?
+      if(this.get('songQueue').at(0)){
+        this.get('songQueue').at(0).play();
+      }
+    }, this);
   }
 });
 
