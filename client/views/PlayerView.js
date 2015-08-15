@@ -10,11 +10,12 @@ var PlayerView = Backbone.View.extend({
     // listens for when it ends,
     // when ended this.model.ended();
 
-    // this.$el.on('ended', function(){
-    //   //debugger;
-    //   console.log(app.get('songQueue').models[0]);
-    //   //this.model.dequeue(songQueue.get(0));
-    // });
+    this.$el.on('ended', function(){
+      //debugger;
+      console.log()
+      console.log(app.get('songQueue').models[0]);
+      //this.model.dequeue(('songQueue').models[0]));
+    });
   },
 
   setSong: function(song){

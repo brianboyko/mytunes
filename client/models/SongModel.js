@@ -8,6 +8,7 @@ var SongModel = Backbone.Model.extend({
 
   // create enqueue method which will activate when a song name is clicked and adds a song to the queue.
   enqueue: function(){
+    console.log('SongModel - enqueue', this)
     this.trigger('enqueue', this);
   },
 

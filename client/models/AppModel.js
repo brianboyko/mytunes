@@ -9,12 +9,17 @@ var AppModel = Backbone.Model.extend({
     }, this);
 
     params.library.on('enqueue', function(song) {
-      this.enqueue(song);
-    }, this.get('songQueue'));
+       console.log("AppModel.js - params.library.on('enqueue')", this)
+      this.get('songQueue').enqueue(song);
+    }, this);
 
     params.library.on('dequeue', function(song) {
-      this.dequeue(song);
-    }, this.get('songQueue'));
+      this.get('songQueue').dequeue(song);
+    }, this);
+
+    params.library.on('ended', function(){
+      console.log("Triggered ended in AppModel");
+    });
   }
 });
 
