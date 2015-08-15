@@ -7,21 +7,11 @@ var SongQueue = Songs.extend({
   },
 
   enqueue: function(song){
-    console.log('called enqueue');
-    this.push(song);
+    this.add(song);
   },
 
   dequeue: function(song){
     this.remove(song);
   }
-
-
-  //enqueue method
-  // takes song parameter and puts at end of queue (ordered collection)
-  //publish change to model
-
-  //dequeue method
-  //takes song off front of queue and triggers play
-  //publish change to model
 
 });

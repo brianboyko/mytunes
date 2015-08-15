@@ -8,9 +8,12 @@ var AppModel = Backbone.Model.extend({
       this.set('currentSong', song);
     }, this);
 
-    this.get('songQueue').on('enqueue', function(song) {
-      console.log("Enqueue event handler has been called");
+    params.library.on('enqueue', function(song) {
       this.enqueue(song);
+    }, this.get('songQueue'));
+
+    params.library.on('dequeue', function(song) {
+      this.dequeue(song);
     }, this.get('songQueue'));
   }
 });
